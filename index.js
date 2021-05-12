@@ -5,14 +5,14 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 
-// api.use(cors());
-// api.options("*", cors())
+// const corsOptions = {
+//   origin: "https://budget-tracking-app-rho.vercel.app",
+//   optionsSuccessStatus: 200,
+// };
+// api.use(cors(corsOptions));
 
-const corsOptions = {
-  origin: "https://budget-tracking-app-rho.vercel.app",
-  optionsSuccessStatus: 200,
-};
-api.use(cors(corsOptions));
+api.use(cors());
+api.options("*", cors());
 
 const connectionString = process.env.MONGO_CONNECTION;
 mongoose.connect(connectionString, {
